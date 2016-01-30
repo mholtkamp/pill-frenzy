@@ -34,5 +34,8 @@ public:
 
     UPROPERTY(EditAnywhere)
     FVector m_vVelocity;
+
+    UPROPERTY(EditAnywhere)
+    bool m_bCollisionActive;
 	
 };

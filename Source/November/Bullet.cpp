@@ -15,6 +15,7 @@ ABullet::ABullet()
     m_pBox = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
 
     m_pBox->SetCollisionProfileName(TEXT("OverlapAll"));
+    m_bCollisionActive = false;
     
 }
 
@@ -49,5 +50,12 @@ void ABullet::Fire(FVector vPosition,
     m_vVelocity = vVelocity;
 
     SetActorLocation(m_vPosition);
+
+    UpdateComponentTransforms();
+    UpdateOverlaps();
+
+    // Set the collision flag to true so that the pill
+    // does not collide at world coordinates <0,0,0>
+    m_bCollisionActive = true;
 }
 

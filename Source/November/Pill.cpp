@@ -38,8 +38,9 @@ APill::APill()
 
 void APill::OnOverlapBegin(AActor* pOther)
 {
-    if (IsPendingKill() == 0 &&
-        Cast<ABaddy>(pOther) != 0)
+    if (IsPendingKill()      == 0 &&
+        Cast<ABaddy>(pOther) != 0 &&
+        m_bCollisionActive   == true)
     {
         Cast<ABaddy>(pOther)->Damage(PILL_DAMAGE);
         UGameplayStatics::SpawnEmitterAtLocation(this, s_pParticleSys, GetActorLocation());
