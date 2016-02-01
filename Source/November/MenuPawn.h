@@ -11,6 +11,12 @@ class NOVEMBER_API AMenuPawn : public APawn
 	GENERATED_BODY()
 
 public:
+
+    //*****
+    // This pawn is similar to the gameover pawn, but it also 
+    // controls the state of the menu.
+    //*****
+
 	// Sets default values for this pawn's properties
 	AMenuPawn();
 

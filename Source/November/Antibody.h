@@ -21,10 +21,13 @@ class NOVEMBER_API AAntibody : public ABaddy
     // Called every frame
 	virtual void Tick( float DeltaTime ) override;
 
+    // Variable to keep track of next bullet fire
     float m_fFireTime;
 
+    // Keeps track of time since last fire
     float m_fTime;
 	
+    // Angular rotation of antibody
     float m_fRotation;
 	
 };

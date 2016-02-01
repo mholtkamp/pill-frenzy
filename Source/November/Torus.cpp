@@ -41,6 +41,4 @@ void ATorus::Tick( float DeltaTime )
     m_fRotation += DeltaTime * ROT_SPEED;
 
     SetActorRotation(FRotator(0.0f, m_fRotation, 0.0f));
-
 }
-

@@ -11,6 +11,13 @@ class NOVEMBER_API AGameStats : public AActor
 	GENERATED_BODY()
 	
 public:	
+    
+    //****** 
+    // The point of this class was to provide an easy way
+    // to transfer data between C++ and blueprints.
+    // Probably not the best way to do things.
+    //******
+
 	// Sets default values for this actor's properties
 	AGameStats();
 

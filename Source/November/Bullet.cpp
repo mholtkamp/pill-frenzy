@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #include "November.h"
 #include "Bullet.h"
 
@@ -8,13 +6,15 @@
 // Sets default values
 ABullet::ABullet()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+    
+    // Create mesh component/box components
     m_pMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
     m_pBox = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
 
     m_pBox->SetCollisionProfileName(TEXT("OverlapAll"));
+
+    // Initialize collision enable flag
     m_bCollisionActive = false;
     
 }
@@ -23,7 +23,6 @@ ABullet::ABullet()
 void ABullet::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -31,15 +30,20 @@ void ABullet::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
 
-    // Move bullet in direction
-    m_vPosition += m_vVelocity*DeltaTime;
+    // Move bullet in direction of velocity
+    m_vPosition += m_vVelocity * DeltaTime;
     SetActorLocation(m_vPosition);
 
+    // If magnitude of origin exceeds kill radius,
+    // then destroy bullet.
     if (m_vPosition.Size() > KILL_RADIUS)
     {
         Destroy();
     }
-
+    
+    // Safety precaution for avoiding collisions at 0,0,0
+    // This is probably unnecessary now because of m_bCollisionActive
+    // Consider removing
     UpdateComponentTransforms();
 }
 
@@ -49,13 +53,17 @@ void ABullet::Fire(FVector vPosition,
     m_vPosition = vPosition;
     m_vVelocity = vVelocity;
 
+    // Set bullet to new location
     SetActorLocation(m_vPosition);
 
+    // Update components to reflect new position
+    // Or else... weird things can happen with where the
+    // bullet overlaps objects at position <0,0,0>
     UpdateComponentTransforms();
     UpdateOverlaps();
 
     // Set the collision flag to true so that the pill
-    // does not collide at world coordinates <0,0,0>
+    // will start checking for collisions
     m_bCollisionActive = true;
 }
 

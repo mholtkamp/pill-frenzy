@@ -31,6 +31,7 @@ public:
 
     void Damage(int nDamage);
 
+    // Components
     UPROPERTY(EditAnywhere)
     UBoxComponent* m_pBox;
 
@@ -55,6 +56,7 @@ public:
     UPROPERTY(EditAnywhere)
     UParticleSystemComponent* m_pBubbles;
 
+    // Data variables
     FVector m_vMoveDir;
 
     UPROPERTY(EditAnywhere)

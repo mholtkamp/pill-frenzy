@@ -15,6 +15,7 @@ class NOVEMBER_API ABlob : public ABullet
 	
 	ABlob();
 
+    // Overlap delegate function
     UFUNCTION()
     void OnOverlapBegin(AActor* pOther);
 	

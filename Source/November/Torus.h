@@ -5,6 +5,11 @@
 #include "GameFramework/Actor.h"
 #include "Torus.generated.h"
 
+//*******
+// This actor is used as the rotating background 
+// in the game.
+//*******
+
 UCLASS()
 class NOVEMBER_API ATorus : public AActor
 {

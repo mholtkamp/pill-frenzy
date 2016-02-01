@@ -11,6 +11,17 @@ class NOVEMBER_API AGameOverPawn : public APawn
 	GENERATED_BODY()
 
 public:
+
+    //******
+    // The whole point of GameOverPawn is to spawn a pawn
+    // that has no visual component and does nothing because 
+    // when at the game over screen, there doesn't need to be
+    // a pawn spawned. I'm sure there is a better way to
+    // to approach the problem, but for the gamejam, this was
+    // fast to implement and it worked fine.
+    //******
+
+
 	// Sets default values for this pawn's properties
 	AGameOverPawn();
 

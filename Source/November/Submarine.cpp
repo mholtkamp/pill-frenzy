@@ -97,10 +97,10 @@ ASubmarine::ASubmarine()
     // set to the zero vector in the constructor.
     m_vMoveDir.Set(0.0f, 0.0f, 0.0f);
 
-    m_fSpeed = DEFAULT_SPEED;
+    m_fSpeed        = DEFAULT_SPEED;
     m_fPropRotSpeed = DEFAULT_PROP_ROT_SPEED;
-    m_fPropRot = 0.0f;
-    m_nHealth = DEFAULT_HEALTH;
+    m_fPropRot      = 0.0f;
+    m_nHealth       = DEFAULT_HEALTH;
 }
 
 // Called when the game starts or when spawned
@@ -207,6 +207,5 @@ void ASubmarine::Damage(int32 nDamage)
     if (m_nHealth <= 0)
     {
         UGameplayStatics::OpenLevel(this, TEXT("GameOverLevel"));
-        //GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Green, TEXT("Game Over!"));
     }
 }

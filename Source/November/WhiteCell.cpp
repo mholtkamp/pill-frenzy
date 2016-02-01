@@ -7,26 +7,21 @@
 #include "Blob.h"
 
 #define BADDY_SPAWN_X 475.0f
-
 #define DEFAULT_HEALTH 5
-
 #define TOP_Z 130.0f
 #define BOT_Z -130.0f
-
 #define MIN_VEL -100.0f
 #define MAX_VEL -40.0f
-
 #define MIN_BURST_TIME 1.0f
 #define MAX_BURST_TIME 4.0f
-
 #define ROT_SPEED 50.0f
-
 #define BLOB_VEL 200.0f
 
 AWhiteCell::AWhiteCell()
 {
     m_pBox->InitBoxExtent(FVector(29.0f, 29.0f, 29.0f));
 
+    // Get assets
     static ConstructorHelpers::FObjectFinder<UStaticMesh> ofMesh(TEXT("StaticMesh'/Game/StaticMeshes/white_cell.white_cell'"));
     
     if (ofMesh.Succeeded())
@@ -37,6 +32,7 @@ AWhiteCell::AWhiteCell()
 
     SetActorScale3D(FVector(0.7f,0.7f,0.7f));
 
+    // Initialize instance variables
     m_fBurstTime = MAX_BURST_TIME;
     m_fTime = 0.0f;
     m_nHealth = 5;
@@ -54,6 +50,7 @@ void AWhiteCell::BeginPlay()
     float fXVelRoll = FMath::FRand() * (MAX_VEL - MIN_VEL) + MIN_VEL;
     m_vVelocity = FVector(fXVelRoll, 0.0f, 0.0f);
 
+    // Time between each burst of blobs
     m_fBurstTime = FMath::FRand() * (MAX_BURST_TIME - MIN_BURST_TIME) + MIN_BURST_TIME;
 }
 

@@ -4,24 +4,16 @@
 #include "Spike.h"
 #include "Submarine.h"
 
-// Fill out your copyright notice in the Description page of Project Settings.
 #define BADDY_SPAWN_X 475.0f
-
 #define DEFAULT_HEALTH 999
-
 #define TOP_Z 130.0f
 #define BOT_Z -130.0f
-
 #define MIN_SPEED 100.0f
 #define MAX_SPEED 400.0f
-
 #define ROT_SPEED 50.0f
-
 #define MAX_ANGLE 60.0f
 #define MIN_ANGLE 20.0f
-
 #define ROT_SPEED 180.0f
-
 #define SPIKE_DAMAGE 2
 
 static UParticleSystem* s_pParticleSys;
